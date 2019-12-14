@@ -31,7 +31,7 @@ class DbHelper {
   void _createDb(Database db, int version) async {
     await db.execute('''
         CREATE TABLE contact (
-          id INTEGER PRIMARI KEY AUTOINCREMENT, 
+          id INTEGER PRIMARY KEY AUTOINCREMENT, 
           name TEXT, 
           phone TEXT)
           ''');
