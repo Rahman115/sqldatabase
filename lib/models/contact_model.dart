@@ -12,6 +12,7 @@ class ContactModel {
   }
 
   int get id => _id;
+
   String get name => _name;
   String get phone => _phone;
 

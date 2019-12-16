@@ -3,6 +3,8 @@ import 'package:sqflite/sqflite.dart';
 import 'package:sqldatabase/helpers/dbhelper.dart';
 import 'package:sqldatabase/models/contact_model.dart';
 import 'package:sqldatabase/ui/entryform.dart';
+// import 'package:path/path.dart';
+// import 'package:async/async.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -13,7 +15,7 @@ class _HomePageState extends State<HomePage> {
   DbHelper dbHelper = DbHelper();
   int count = 0;
   List<ContactModel> contactList; 
-  
+  // final AsyncMemoizer _memoizer = AsyncMemoizer();
   @override
   Widget build(BuildContext context) {
     if (contactList == null) {
@@ -23,7 +25,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('data'),
       ),
-      body: createListView(),
+      body: createListView(context),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         tooltip: 'Tambah Data',
@@ -47,7 +49,7 @@ class _HomePageState extends State<HomePage> {
     return result;
   }
 
-  ListView createListView() {
+  ListView createListView(BuildContext context) {
     TextStyle textStyle = Theme.of(context).textTheme.subhead;
     return ListView.builder(
       itemCount: count,
